@@ -1,15 +1,15 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import { InMemoryOrderPersistenceModule } from './persistence/in-memory/in-memory.module';
-import { TypeormPersistenceModule } from './persistence/typeorm/typeorm.module';
+import { InMemoryOrderPersistanceModule } from './persistence/in-memory/in-memory.module';
+import { TypeormPersistanceModule } from './persistence/typeorm/typeorm.module';
 import { BootstrapConfig } from '../../app.module';
 
 @Module({})
 export class OrderInfrastructureModule {
-  static use(driver: BootstrapConfig['persistenceDriver']): DynamicModule {
+  static use(driver: BootstrapConfig['persistanceDriver']): DynamicModule {
     const persistenceModule =
       driver === 'in-memory'
-        ? InMemoryOrderPersistenceModule
-        : TypeormPersistenceModule;
+        ? InMemoryOrderPersistanceModule
+        : TypeormPersistanceModule;
 
     return {
       module: OrderInfrastructureModule,

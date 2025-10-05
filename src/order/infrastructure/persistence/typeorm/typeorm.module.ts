@@ -18,4 +18,4 @@ import { TypeormOrder } from './entities/typeorm-order.entity';
   ],
   exports: [IOrderRepository],
 })
-export class TypeormPersistenceModule {}
+export class TypeormPersistanceModule {}

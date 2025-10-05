@@ -3,7 +3,7 @@ import { OrderModule } from './order/order.module';
 import { OrderInfrastructureModule } from './order/infrastructure/order-infrastructure.module';
 
 export type BootstrapConfig = {
-  persistenceDriver: 'in-memory' | 'typeorm';
+  persistanceDriver: 'in-memory' | 'typeorm';
 };
 
 @Module({})
@@ -13,7 +13,7 @@ export class AppModule {
       module: AppModule,
       imports: [
         OrderModule.withInfrasctructure(
-          OrderInfrastructureModule.use(options.persistenceDriver),
+          OrderInfrastructureModule.use(options.persistanceDriver),
         ),
       ],
     };

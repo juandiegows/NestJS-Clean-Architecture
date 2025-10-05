@@ -11,4 +11,4 @@ import { InMemoryOrderRepository } from './repositories/in-memory.order-repo';
   ],
   exports: [IOrderRepository],
 })
-export class InMemoryOrderPersistenceModule {}
+export class InMemoryOrderPersistanceModule {}
