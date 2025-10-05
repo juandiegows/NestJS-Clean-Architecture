@@ -1,9 +1,16 @@
-import { Module } from '@nestjs/common';
+import { DynamicModule, Module } from '@nestjs/common';
 import { OrderService } from './application/order.service';
-import { OrderController } from './infrastructure/interface-adapters/order.controller';
+import { OrderController } from './presenters/order.controller';
 
 @Module({
   providers: [OrderService],
   controllers: [OrderController],
 })
-export class OrderModule {}
+export class OrderModule {
+  static withInfrasctructure(infraModule: DynamicModule): DynamicModule {
+    return {
+      module: OrderModule,
+      imports: [infraModule],
+    };
+  }
+}

@@ -1,8 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { Order } from '../domain/order.entity';
-import { IOrderRepository } from './ports/order.repository';
 import { CreateOrderRequestDTO } from './dtos/create-order-request.dto';
 import { OrderRepositorySaveDTO } from './dtos/order-repository-save.dto';
+import { IOrderRepository } from './ports/order.repository';
 
 @Injectable()
 export class OrderService {
@@ -10,7 +10,6 @@ export class OrderService {
 
   async getOrderById(id: string): Promise<Order> {
     const order = await this.orderRepository.getOrder(id);
-
     if (!order) {
       throw new BadRequestException(`Order with id ${id} not found`);
     }
